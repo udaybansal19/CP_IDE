@@ -12,7 +12,7 @@ app.get('/', function(req,res) {
 
 
 app.post('/code', function(req,res){
-    console.log(req.body);
+    console.log(req);
     var url = "https://api.jdoodle.com/v1/execute";
 
     var obj = {
