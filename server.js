@@ -1,25 +1,29 @@
 var express = require('express');
 var app = express();
 var request = require('request');
-const path = require("path");
+var bodyParser = require('body-parser')
 
-var routes = express.Router();
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+
+app.use(express.json());       // to support JSON-encoded bodies
+
 
 app.use(express.static('views'));
+
 
 app.get('/', function(req,res) {
     res.sendFile('index.html')
 });
 
-
 app.post('/code', function(req,res){
-    console.log(req);
+    console.log(req.body.script);
     var url = "https://api.jdoodle.com/v1/execute";
 
     var obj = {
-       "script" : "print(1234)",
-       "language" : "python2",
-       "versionIndex" : "0",
+       "script" : req.body.script,
+       "language" : "cpp14",
+       "versionIndex" : "2",
        "clientId" : "55b38b73c23c3a81677bd5d26c97a403",
        "clientSecret" : "6d891bf44cbf04fb235a3ef62e8a3a7f10f842e64e9ccd27fd435c85891e6e73"
        };

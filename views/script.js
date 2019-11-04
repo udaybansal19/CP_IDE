@@ -9,16 +9,16 @@ document.getElementById("submit")
     xhttp.open("POST", '/code', true);
     xhttp.setRequestHeader("Content-type", "application/json");
     var script = document.getElementById("code").value;
-    var code = {
+    var code = JSON.stringify({
         "script": script
-    }
+    });
     xhttp.send(code);
     xhttp.onreadystatechange = function() {
         console.log(xhttp.status);
         if(xhttp.status === 200){
             
                var json = xhttp.responseText;
-               if(json != null){
+               if(json != ""){
                var res = JSON.parse(json);
                console.log(res.output);
                document.getElementById("output").value =  res.output;
