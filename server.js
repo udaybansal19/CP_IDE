@@ -5,9 +5,10 @@ const path = require("path");
 
 var routes = express.Router();
 
+app.use(express.static('views'));
 
 app.get('/', function(req,res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile('index.html')
 });
 
 

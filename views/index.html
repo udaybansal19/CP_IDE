@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>ACE in Action</title>
+<title>IDE</title>
 <style src="style.css"></style>
 </head>
 <body>
@@ -10,13 +10,12 @@
         <div class="textarea">
             <textarea id="code" rows="30" cols="150">print(123)</textarea>
         </div>
-        <div id="submit"><input type="button"></div>
-        <div class="output"></div>
+        <div class="submit-button"><input type="button" id="submit" value="submit"></div>
+        <div class="output"><b>Output:</b><br>
+            <textarea id="output" rows="4" cols="10"></textarea>
+        </div>
     </div>
     
-<script src="ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="script.js"></script>
-   
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
