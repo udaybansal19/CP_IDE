@@ -60,7 +60,7 @@ io.on('connection', (socket) =>{
     console.log("connection made with " + socket.id);
 
     socket.on('typing', (data) => {
-        socket.broadcast.emit('code',data);
+        io.sockets.emit('code',data);
         console.log(data);
     });
 });

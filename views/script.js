@@ -2,13 +2,12 @@ var socket = io.connect('http://localhost:8081/');
 
 var code = document.getElementById("code");
 
-code.addEventListener("keypress", () =>{
+code.addEventListener("keyup", () =>{
     socket.emit('typing',code.value);
-    console.log(code.value);
 });
 
-socket.on('typing',(data) =>{
-    console.log(data);
+socket.on('code', function(data){
+    code.value = data;
 });
 
 document.getElementById("submit")
