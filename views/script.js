@@ -1,4 +1,15 @@
+var socket = io.connect('http://localhost:8081/');
 
+var code = document.getElementById("code");
+
+code.addEventListener("keypress", () =>{
+    socket.emit('typing',code.value);
+    console.log(code.value);
+});
+
+socket.on('typing',(data) =>{
+    console.log(data);
+});
 
 document.getElementById("submit")
     .addEventListener("click",() =>{
@@ -8,11 +19,11 @@ document.getElementById("submit")
 
     xhttp.open("POST", '/code', true);
     xhttp.setRequestHeader("Content-type", "application/json");
-    var script = document.getElementById("code").value;
-    var code = JSON.stringify({
-        "script": script
+
+    var code_text = JSON.stringify({
+        "script": code.value
     });
-    xhttp.send(code);
+    xhttp.send(code_text);
     xhttp.onreadystatechange = function() {
         console.log(xhttp.status);
         if(xhttp.status === 200){

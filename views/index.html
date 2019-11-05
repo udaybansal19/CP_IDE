@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <head>
 <title>IDE</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
 <style src="style.css"></style>
 </head>
 <body>
  
     <div class="ide">
         <div class="header">Online Ide</div>
-        <div class="textarea">
-            <textarea id="code" rows="30" cols="150">print(123)</textarea>
+        <div class="textarea" bgcolor="#1c1e1f">
+            <textarea id="code" rows="30" cols="150">#include <bits/stdc++.h>
+
+using namespace std;
+                
+int main(){
+
+    cout<<"Hello World"<<endl;
+                
+    return 0;
+}</textarea>
         </div>
         <div class="submit-button"><input type="button" id="submit" value="submit"></div>
         <div class="output"><b>Output:</b><br>

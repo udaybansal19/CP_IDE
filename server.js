@@ -2,7 +2,13 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var bodyParser = require('body-parser')
+var socket = require('socket.io');
 
+var server = app.listen(8081, () => {
+    console.log("Page is running on: " + server.address().port);
+});
+
+var io = socket(server);
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 
@@ -49,10 +55,13 @@ app.post('/code', function(req,res){
    );
 });
 
+io.on('connection', (socket) =>{
 
+    console.log("connection made with " + socket.id);
 
-var server = app.listen(8081, () => {
- console.log("Page is running on: " + server.address().port);
-}); 
-
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('code',data);
+        console.log(data);
+    });
+});
 
