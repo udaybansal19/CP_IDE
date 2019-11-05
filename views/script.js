@@ -19,9 +19,13 @@ document.getElementById("submit")
     xhttp.open("POST", '/code', true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
+    var input = document.getElementById("input");
+
     var code_text = JSON.stringify({
-        "script": code.value
+        "script": code.value,
+        "stdin": input.value
     });
+
     xhttp.send(code_text);
     xhttp.onreadystatechange = function() {
         console.log(xhttp.status);
