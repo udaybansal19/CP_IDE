@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:8081/');
+var socket = io.connect('http://192.168.129.47:8081/');
 
 var code = document.getElementById("code");
 
@@ -15,6 +15,9 @@ document.getElementById("submit")
 
     console.log("button clicked");
     var xhttp = new XMLHttpRequest();
+
+    // var loader = document.getElementsByClassName("loader");
+    // loader.style.display = "inline-block";
 
     xhttp.open("POST", '/code', true);
     xhttp.setRequestHeader("Content-type", "application/json");
@@ -35,6 +38,7 @@ document.getElementById("submit")
                if(json != ""){
                var res = JSON.parse(json);
                console.log(res.output);
+               //loader.style.display = "none";
                document.getElementById("output").value =  res.output;
                 console.log("success");
                }

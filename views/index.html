@@ -8,8 +8,8 @@
  
     <div class="ide">
         <div class="header">Online Ide</div>
-        <div class="textarea" bgcolor="#1c1e1f">
-            <textarea id="code" rows="30" cols="150">#include <bits/stdc++.h>
+        <div class="textarea">
+            <textarea id="code">#include <bits/stdc++.h>
 
 using namespace std;
                 
@@ -22,8 +22,11 @@ int main(){
         </div>
         <div class="input"><b>Input:</b><br>
             <textarea id="input" rows="4" cols="70"></textarea>
+            <div class="submit">
+                <div class="submit-button"><input type="button" id="submit" value="Submit"></div>
+                <div class="loader"></div>
+            </div>
         </div>
-        <div class="submit-button"><input type="button" id="submit" value="submit"></div>
         <div class="output"><b>Output:</b><br>
             <textarea id="output" rows="4" cols="70"></textarea>
         </div>
