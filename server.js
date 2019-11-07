@@ -3,6 +3,9 @@ var app = express();
 var request = require('request');
 var bodyParser = require('body-parser')
 var socket = require('socket.io');
+var mongo = require('mongodb').MongoClient;
+
+var db_url = "mongodb://localhost:27017/";
 
 var server = app.listen(8081, () => {
     console.log("Page is running on: " + server.address().port);
@@ -66,3 +69,13 @@ io.on('connection', (socket) =>{
     });
 });
 
+
+mongo.connect(db_url, function(err,db) {
+    if (err) throw err;
+    var dbo = db.db("editor-db");
+    dbo.collection("codes").find({},{ projection: { _id: 0, code: 0 } }).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      db.close();
+    });
+})
