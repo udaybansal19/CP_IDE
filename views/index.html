@@ -2,10 +2,14 @@
 <head>
 <title>IDE</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
  
+    <div class="whole-thing">
     <div class="ide">
         <div class="header">Online Ide</div>
         <div class="textarea">
@@ -30,6 +34,29 @@ int main(){
         <div class="output"><b>Output:</b><br>
             <textarea id="output" rows="4" cols="70"></textarea>
         </div>
+    </div>
+    <div class="side-panel">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
+                <ul class="dropdown-menu scrollable-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                </ul>
+            </div>
+
+    </div>
     </div>
     
     <script src="script.js"></script>

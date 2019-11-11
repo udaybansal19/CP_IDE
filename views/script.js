@@ -1,4 +1,4 @@
-var socket = io.connect('http://192.168.129.47:8081/');
+var socket = io.connect('http://192.168.137.1:8081/');
 
 var code = document.getElementById("code");
 

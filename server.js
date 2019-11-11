@@ -70,12 +70,12 @@ io.on('connection', (socket) =>{
 });
 
 
-mongo.connect(db_url, function(err,db) {
+mongo.connect(db_url,{ useUnifiedTopology: true }, function(err,db) {
     if (err) throw err;
     var dbo = db.db("editor-db");
     dbo.collection("codes").find({},{ projection: { _id: 0, code: 0 } }).toArray(function(err, result) {
       if (err) throw err;
-      console.log(result);
+      //console.log(result);
       db.close();
     });
 })
