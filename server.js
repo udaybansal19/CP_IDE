@@ -32,8 +32,8 @@ app.post('/code', function(req,res){
     var obj = {
        "script" : req.body.script,
        "stdin" : req.body.stdin,
-       "language" : "cpp14",
-       "versionIndex" : "2",
+       "language" : req.body.language,
+       "versionIndex" : req.body.vi,
        "clientId" : "55b38b73c23c3a81677bd5d26c97a403",
        "clientSecret" : "6d891bf44cbf04fb235a3ef62e8a3a7f10f842e64e9ccd27fd435c85891e6e73"
        };

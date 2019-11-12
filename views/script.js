@@ -10,6 +10,7 @@ socket.on('code', function(data){
     code.value = data;
 });
 
+
 document.getElementById("submit")
     .addEventListener("click",() =>{
 
@@ -23,10 +24,15 @@ document.getElementById("submit")
     xhttp.setRequestHeader("Content-type", "application/json");
 
     var input = document.getElementById("input");
+    var lang = document.getElementById("lang-list").value;
+    var language = lang.substring(0,lang.length-1);
+    var vi = lang[lang.length-1];
 
     var code_text = JSON.stringify({
         "script": code.value,
-        "stdin": input.value
+        "stdin": input.value,
+        "language": language,
+        "vi": vi
     });
 
     xhttp.send(code_text);
