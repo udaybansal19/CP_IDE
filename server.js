@@ -59,6 +59,19 @@ app.post('/code', function(req,res){
    );
 });
 
+app.get('/helloworld', function(req,res){
+    mongo.connect(db_url,{ useUnifiedTopology: true }, function(err,db) {
+        if (err) throw err;
+        var dbo = db.db("editor-db");
+        dbo.collection("helloWorld").findOne({'lang-code': req.header('lang-code')},function(err, result) {
+          if (err) throw err;
+          res.json(result);
+          db.close();
+        });
+        res.statusCode = 200;
+    })
+});
+
 io.on('connection', (socket) =>{
 
     console.log("connection made with " + socket.id);

@@ -55,3 +55,24 @@ document.getElementById("submit")
         }
     }
 });
+
+document.getElementById("lang-list").onchange = () =>{
+    var lang = document.getElementById("lang-list").value;
+    var language = lang.substring(0,lang.length-1);
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET",'/helloWorld',true);
+    xhttp.setRequestHeader("lang-code", language);
+    xhttp.send();
+    xhttp.onreadystatechange = () =>{
+        console.log(xhttp.status);
+        if(xhttp.status === 200){
+            document.getElementById("code").value = JSON.parse(xhttp.responseText).code;
+                console.log("success");
+        }else{
+            console.log("Failed")
+            console.log(xhttp);
+        }
+    }
+
+};
